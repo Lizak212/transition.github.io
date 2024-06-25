@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Transitions and Animations</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .all-buttons {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .color-button {
+      background-color: pink;
+      transition: background-color 0.3s ease;
+    }
+
+    .circle-Size {
+      width: 50px;
+      height: 50px;
+      background-image: url('Circle.jpg');
+      background-size: cover;
+      background-position: center;
+      transition: width 0.3s ease, height 0.3s ease;
+    }
+
+    .square-rotate {
+      width: 50px;
+      height: 50px;
+      background-image: url('Square.jpeg');
+      background-size: cover;
+      background-position: center;
+      transform: rotate(0deg);
+      transition: transform 0.3s ease;
+    }
+
+    .arrow-slide {
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-right: 0;
+      transition: transform 0.6s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Transitions and Animations</h1>
+
+  <div class = "all-buttons" id = "container">
+    <button class = "color-button" id = "color-button" onclick = "click_color ()"> Click to color</button>
+  
+    <button class = "circle-Size" id = "circle-Size" onclick = "size ()"></button>
+  
+    <button class = "square-rotate" id = "square-rotate" onclick = "rotate ()"></button>
+
+    <button class = "arrow-slide" id = "arrow-slide-up" onclick = "slide_up ()">⬆️</button>
+
+
+    <button class = "arrow-slide" id = "arrow-slide-down" onclick = "slide_down ()">⬇️</button>
+
+    <button class = "arrow-slide" id = "arrow-slide-left" onclick = "slide_left ()">⬅️</button>
+
+    <button class = "arrow-slide" id = "arrow-slide-right" onclick = "slide_right ()">➡️</button>
+
+
+    <button class = "reset" id = "reset" onclick = "window.location.href = 'index.html';"> Click to reset </button>
+  </div>
+
+  <script>
+    function click_color () {
+      var colours = ["red", "blue", "pink", "green", "orange", "purple"];
+      var number = Math.floor(Math.random() * colours.length);
+      var button = document.getElementById("color-button");
+
+      button.style.backgroundColor = colours[number];
+    }
+
+    function size () {
+      var size = ["50px", "20px", "100px", "10px", "200px", "5px"];
+      var number = Math.floor(Math.random() * size.length);
+      var button = document.getElementById("circle-Size");
+
+      button.style.width = size[number];
+      button.style.height = size[number];
+    }
+
+    function rotate () {
+      var rotate = ["rotate(90deg)", "rotate(180deg)", "rotate(270deg)", "rotate(360deg)"];
+      var number = Math.floor(Math.random() * rotate.length);
+      var button = document.getElementById("square-rotate");
+    
+      button.style.transform = rotate[number];
+    }
+
+    function slide_up () {
+      var slide = ["-50px", "-20px", "-100px", "-10px", "-200px", "-5px"];
+      var number = Math.floor(Math.random() * slide.length);
+      var button = document.getElementById("arrow-slide-up");
+      button.style.transform = 'translateY(' + slide[number] + ')';
+    }
+
+    function slide_down () {
+      var slide = ["50px", "20px", "100px", "10px", "200px", "5px"];
+      var number = Math.floor(Math.random() * slide.length);
+      var button = document.getElementById("arrow-slide-down");
+      button.style.transform = 'translateY(' + slide[number] + ')';
+    }
+
+    function slide_left () {
+      var slide = ["-50px", "-20px", "-100px", "-10px", "-200px", "-5px"];
+      var number = Math.floor(Math.random() * slide.length);
+      var button = document.getElementById("arrow-slide-left");
+      button.style.transform = 'translateX(' + slide[number] + ')';
+    }
+
+    function slide_right () {
+      var slide = ["50px", "20px", "100px", "10px", "200px", "5px"];
+      var number = Math.floor(Math.random() * slide.length);
+      var button = document.getElementById("arrow-slide-right");
+      button.style.transform = 'translateX(' + slide[number] + ')';
+    }
+  </script>
+
+</body>
+
+</html>
